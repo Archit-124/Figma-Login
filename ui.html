@@ -1,0 +1,23 @@
+<body>
+  <h1>Login Here</h1>
+  <form>
+    <label for="username">Username:</label>
+    <input type="text" id="username" name="username" required /><br /><br />
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" required /><br /><br />
+    <button type="submit" id="login" value="Login">Login</button>
+  </form>
+</body>
+
+<script>
+  document.getElementById("login").onclick = () => {
+    const textbox1 = document.getElementById("username");
+    const username = parseInt(textbox1.value, 10);
+    const textbox2 = document.getElementById("password");
+    const password = parseInt(textbox2.value, 10);
+    parent.postMessage(
+      { pluginMessage: { type: "loogin", username, password } },
+      "*"
+    );
+  };
+</script>
